@@ -14,7 +14,21 @@ public class FormsPage extends MainPage {
     private final SelenideElement mobileNumberInput = $(By.xpath("//input[@id='userNumber']"));
     private final SelenideElement emailInput = $(By.xpath("//input[@id='userEmail']"));
     private final SelenideElement submitFormPopup = $(By.xpath("//div[@class='modal-content']"));
-
+    private final SelenideElement sportsCheckBox = $(By.xpath("//label[normalize-space()='Sports']"));
+    private final SelenideElement readingCheckBox = $(By.xpath("//label[normalize-space()='Reading']"));
+    private final SelenideElement musicCheckBox = $(By.xpath("//label[normalize-space()='Music']"));
+    public SelenideElement getMobileNumberInput() {
+        return mobileNumberInput;
+    }
+    public SelenideElement getSportsCheckBox() {
+        return sportsCheckBox;
+    }
+    public SelenideElement getReadingCheckBox() {
+        return readingCheckBox;
+    }
+    public SelenideElement getMusicCheckBox() {
+        return musicCheckBox;
+    }
     public SelenideElement getSubmitFormPopup() {
         return submitFormPopup;
     }
