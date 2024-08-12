@@ -12,4 +12,5 @@ public class MainTest {
     DynamicProperties dynamicProperties = new DynamicProperties();
     SliderPage sliderPage = new SliderPage();
     AccordianPage accordianPage = new AccordianPage();
+    AutoCompletePage autoCompletePage = new AutoCompletePage();
 }

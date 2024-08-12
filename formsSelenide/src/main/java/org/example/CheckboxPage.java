@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class CheckboxPage extends MainPage {
 
@@ -234,112 +235,71 @@ public class CheckboxPage extends MainPage {
     public SelenideElement getExcelFileCheckBox() {
         return excelFileCheckBox;
     }
-
     public SelenideElement getResultText() {
         return resultText;
     }
-
     public CheckboxPage clickHomeArrow() {
-
         homeArrowButton.click();
-
         return this;
     }
-
     public CheckboxPage clickDocumentsArrow() {
-
         documentsArrowButton.click();
-
         return this;
     }
-
     public CheckboxPage clickDownloadArrow() {
-
         downloadArrowButton.click();
-
         return this;
     }
-
     public CheckboxPage open() {
-
         Selenide.open("https://demoqa.com/checkbox");
-
         return this;
     }
-
     public CheckboxPage desktopArrowClick() {
-
         desktopArrowButton.click();
-
         return this;
     }
-
     public CheckboxPage workspaceArrowClick() {
-
         workspaceArrowButton.click();
-
         return this;
     }
-
     public CheckboxPage officeArrowClick() {
-
         officeArrowButton.click();
-
         return this;
     }
-
     public CheckboxPage clickExpandAllButton() {
-
         expandAllButton.click();
-
         return this;
     }
-
     public CheckboxPage clickExcelFileCheckBox() {
-
         boolean homeIsChecked = homeIsChecked();
-
         smartClick(excelFileCheckBox, downloadCheckBox);
-
         checkBoxClicking(excelFileCheckBox);
-
         if (downloadCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.add("downloads");
         } else if (!(downloadCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) &&
                 wordFileCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.remove("downloads");
         }
-
         homeManagement(homeIsChecked);
         return this;
     }
-
     public CheckboxPage clickWordFileCheckBox() {
-
         boolean homeIsChecked = homeIsChecked();
-
         smartClick(wordFileCheckBox, downloadCheckBox, "downloadCheckBox");
         checkBoxClicking(wordFileCheckBox);
-
         if (downloadCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.add("downloads");
         } else if (!(downloadCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) &&
                 excelFileCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.remove("downloads");
         }
-
         homeManagement(homeIsChecked);
-
         return this;
     }
-
     public CheckboxPage clickNotesCheckBox() {
-
         boolean homeIsChecked = homeIsChecked();
-
         smartClick(notesCheckBox, desktopCheckBox, "desktopCheckBox");
         checkBoxClicking(notesCheckBox);
-
         if (desktopCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.add("desktop");
         } else if (!(desktopCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) &&
@@ -350,12 +310,9 @@ public class CheckboxPage extends MainPage {
         return this;
     }
     public CheckboxPage clickCommandsCheckBox() {
-
         boolean homeIsChecked = homeIsChecked();
-
         smartClick(commandsCheckBox, desktopCheckBox);
         checkBoxClicking(commandsCheckBox);
-
         if (desktopCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.add("desktop");
         } else if (!(desktopCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) &&
@@ -365,7 +322,6 @@ public class CheckboxPage extends MainPage {
         homeManagement(homeIsChecked);
         return this;
     }
-
     public CheckboxPage clickWorkSpaceCheckBox() {
         boolean homeIsChecked = homeIsChecked();
         smartClick(workSpaceCheckBox, documentsCheckBox, "documentsCheckBox");
@@ -380,7 +336,6 @@ public class CheckboxPage extends MainPage {
             listOfCheckBoxes.remove("angular");
             listOfCheckBoxes.remove("veu");
         }
-
         if (documentsCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.add("documents");
         } else if (!(documentsCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) &&
@@ -390,11 +345,8 @@ public class CheckboxPage extends MainPage {
         homeManagement(homeIsChecked);
         return this;
     }
-
     public CheckboxPage clickOfficeCheckBox() {
-
         boolean homeIsChecked = homeIsChecked();
-
         smartClick(officeCheckBox, documentsCheckBox, "documentsCheckBox");
         if (officeCheckBox.lastChild().getAttribute("class").equals("rct-icon rct-icon-check")) {
             listOfCheckBoxes.add("office");
@@ -419,11 +371,23 @@ public class CheckboxPage extends MainPage {
         homeManagement(homeIsChecked);
         return this;
     }
-
     public String[] getSortedTextArray(){
         String [] array = getResultText().getText().split("\n");
         Arrays.sort(array);
         return array;
     }
-
+    public boolean checkAmountOfCheckBoxes(int size){
+        return $$(".rct-text").size() == size;
+    }
+    public ArrayList<String> letsGO(){
+        for(SelenideElement element : $$(".rct-text")){
+            if(element.find(By.cssSelector(".rct-icon")).getAttribute("class").contains("check")){
+                String title = element.find(By.cssSelector(".rct-title")).getOwnText();
+                title = Character.toLowerCase(title.charAt(0))+title.substring(1);
+                listOfCheckBoxes.add(title);
+                System.out.println(title);
+            }
+        }
+        return listOfCheckBoxes;
+    }
 }
