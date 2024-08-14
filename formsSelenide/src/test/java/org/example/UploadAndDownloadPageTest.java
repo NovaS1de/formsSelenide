@@ -24,6 +24,6 @@ public class UploadAndDownloadPageTest extends MainTest{
                 getOwnText());
         Assert.assertTrue(uploadAndDownloadPage.getFilePathP().
                 getOwnText().
-                matches("^.*"+fileName+"$"));
+                matches("^C:.*"+fileName+"$"));
     }
 }
