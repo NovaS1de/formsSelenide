@@ -13,4 +13,5 @@ public class MainTest {
     SliderPage sliderPage = new SliderPage();
     AccordianPage accordianPage = new AccordianPage();
     AutoCompletePage autoCompletePage = new AutoCompletePage();
+    UploadAndDownloadPage uploadAndDownloadPage = new UploadAndDownloadPage();
 }
