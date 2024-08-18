@@ -14,4 +14,6 @@ public class MainTest {
     AccordianPage accordianPage = new AccordianPage();
     AutoCompletePage autoCompletePage = new AutoCompletePage();
     UploadAndDownloadPage uploadAndDownloadPage = new UploadAndDownloadPage();
+    ToolTipsPage toolTipsPage = new ToolTipsPage();
+    MenuPage menuPage = new MenuPage();
 }

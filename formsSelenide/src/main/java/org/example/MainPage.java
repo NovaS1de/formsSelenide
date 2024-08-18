@@ -24,5 +24,13 @@ public class MainPage {
     public FormsPage toFormsPage(){
         return new FormsPage();
     }
-
+    public MainPage hoverOver(SelenideElement ... elements){
+        for (SelenideElement element : elements){
+            element.hover();
+        }
+        return this;
+    }
+    public MenuPage toMenuPage(){
+        return new MenuPage();
+    }
 }
