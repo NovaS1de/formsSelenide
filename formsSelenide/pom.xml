@@ -8,20 +8,23 @@
   <name>formsSelenide</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
       <version>7.3.3</version>
       <scope>compile</scope>
     </dependency>
-
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>7.10.2</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.34</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>

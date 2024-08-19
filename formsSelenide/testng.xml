@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" thread-count="2" name="C:/formsSelenide">
+        <classes>
+            <class name="org.example.AccordianPageTest">
+                <methods>
+                    <include name="kek"/>
+                </methods>
+            </class>
+            <class name="org.example.AlertsPageTest">
+                <methods>
+                    <include name="keke"/>
+                    <include name="kekes"/>
+                    <include name="kekesik"/>
+                    <include name="kekesiki"/>
+                </methods>
+            </class>
+            <class name="org.example.AutoCompletePageTest">
+                <methods>
+                    <include name="kek"/>
+                </methods>
+            </class>
+            <class name="org.example.BrowserWindowsPageTest">
+                <methods>
+                    <include name="kekes"/>
+                </methods>
+            </class>
+            <class name="org.example.CheckboxPageTest">
+                <methods>
+                    <include name="kek"/>
+                </methods>
+            </class>
+            <class name="org.example.DroppablePageTest">
+                <methods>
+                    <include name="kekeslav"/>
+                </methods>
+            </class>
+            <class name="org.example.DynamicPropertiesTest">
+                <methods>
+                    <include name="kek"/>
+                    <include name="keke"/>
+                </methods>
+            </class>
+            <class name="org.example.ElementsPageTest">
+                <methods>
+                    <include name="testingWebTable"/>
+                </methods>
+            </class>
+            <class name="org.example.FormsPageTest">
+                <methods>
+                    <include name="chooseState"/>
+                </methods>
+            </class>
+            <class name="org.example.FramesPageTest">
+                <methods>
+                    <include name="keke"/>
+                </methods>
+            </class>
+            <class name="org.example.MenuPageTest">
+                <methods>
+                    <include name="kek"/>
+                </methods>
+            </class>
+            <class name="org.example.ModalDialogsPageTest">
+                <methods>
+                    <include name="kek"/>
+                </methods>
+            </class>
+            <class name="org.example.SUPERTEST">
+                <methods>
+                    <include name="kek"/>
+                </methods>
+            </class>
+            <class name="org.example.SliderPageTest">
+                <methods>
+                    <parameter name="percent" value="10"/>
+                    <include name="kek"/>
+                </methods>
+            </class>
+            <class name="org.example.ToolTipsPageTest">
+                <methods>
+                    <include name="keke"/>
+                </methods>
+            </class>
+            <class name="org.example.UploadAndDownloadPageTest">
+                <methods>
+                    <include name="kek"/>
+                    <include name="keke"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

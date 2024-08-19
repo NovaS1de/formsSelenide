@@ -1,6 +1,8 @@
 package org.example;
 import com.codeborne.selenide.Configuration;
+import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.sleep;
 public class SliderPageTest extends MainTest{
@@ -10,9 +12,12 @@ public class SliderPageTest extends MainTest{
         Configuration.browserSize = "1920x1080";
     }
     @Test
+//    @Parameters({"percent"})
     public void kek(){
+        int percent = 40;
         sliderPage.open().
-                clickOnSlider(5);
+                clickOnSliderNew(percent);
+        Assert.assertEquals(Integer.parseInt(sliderPage.getSliderValue().getValue()), percent);
         sleep(10000);
     }
 }

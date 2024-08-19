@@ -2,12 +2,15 @@ package org.example;
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 import org.openqa.selenium.By;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
-
+import org.openqa.selenium.Keys;
+import static com.codeborne.selenide.Selenide.*;
+@Getter
 public class SliderPage extends MainPage{
     private final SelenideElement slider = $(".range-slider.range-slider--primary");
+    private final SelenideElement sliderValue = $("#sliderValue");
+    private int expectedSliderValue;
     public SliderPage open(){
         Selenide.open("https://demoqa.com/slider");
         return this;
@@ -30,6 +33,21 @@ public class SliderPage extends MainPage{
     }
     public SliderPage clickOnSlider(int percent){
         slider.click(ClickOptions.withOffset(getCoordinates(percent), 0)).click();
+        return this;
+    }
+    public SliderPage clickOnSliderNew(int percent){
+        slider.click();
+        if(percent<50 && percent>=0){
+            for (int i = 50; i!=percent; i--){
+                slider.sendKeys(Keys.ARROW_LEFT);
+            }
+        } else if (percent>50 && percent<=100){
+            for(int i = 50; i!=percent; i++){
+                slider.sendKeys(Keys.ARROW_RIGHT);
+            }
+        }else if(percent<0 || percent>100){
+            System.out.println("ВВЕДЕНО НЕВЕРНОЕ ЗНАЧЕНИЕ!! ИДИ УЧИСЬ ЛОДЫРЬ!");
+        }
         return this;
     }
 }
